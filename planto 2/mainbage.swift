@@ -34,8 +34,8 @@ struct MainView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 60)
-                .padding(.bottom, 20)
+                .padding(.top, 70)
+                .padding(.bottom, 50)
                 
                 // MARK: - Content Switcher
                 if allPlantsCompleted {
@@ -47,7 +47,7 @@ struct MainView: View {
                     VStack(spacing: 0) {
                         // Progress Banner
                         VStack(spacing: 12) {
-                            Text("Your plants are waiting for a sip 💧")
+                            Text("Your plants are waiting for a sip 💦 ")
                                 .font(.system(size: 17))
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, alignment: .center)
@@ -55,11 +55,12 @@ struct MainView: View {
                             ZStack(alignment: .leading) {
                                 Rectangle()
                                     .fill(Color.gray.opacity(0.3))
-                                    .frame(height: 4)
+                                    .frame(height: 8)
                                 
                                 Rectangle()
-                                    .fill(Color.green)
-                                    .frame(width: UIScreen.main.bounds.width * 0.9 * viewModel.progressPercentage, height: 4)
+                                    .fill(Color(hex: "22BA8C"))
+
+                                    .frame(width: UIScreen.main.bounds.width * 0.9 * viewModel.progressPercentage, height: 8)
                                     .animation(.spring(), value: viewModel.progressPercentage)
                             }
                             .frame(maxWidth: .infinity)
@@ -119,7 +120,7 @@ struct MainView: View {
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
                             .frame(width: 60, height: 60)
-                            .background(Color.green)
+                            .background(Color(hex: "22BA8C"))
                             .clipShape(Circle())
                             .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
                     }
@@ -167,31 +168,23 @@ struct MainView: View {
 }
 
 // MARK: - All Done View Component
-// Shows when all plants are checked/watered
 struct AllDoneView: View {
     var body: some View {
         VStack(spacing: 20) {
             Spacer()
-            
-            // MARK: - Happy Plant Image
             Image("plant2")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 250, height: 250)
                 .padding()
-            
-            // MARK: - Completion Title
             Text("All Done! 🎉")
                 .font(.system(size: 32, weight: .bold))
                 .foregroundColor(.white)
                 .padding(.top, 20)
-            
-            // MARK: - Completion Message
             Text("All Reminders Completed")
                 .font(.system(size: 17))
                 .foregroundColor(.gray)
                 .padding(.top, 5)
-            
             Spacer()
             Spacer()
         }
@@ -227,7 +220,7 @@ struct PlantReminderRow: View {
             // MARK: - Plant Info
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 4) {
-                    Image(systemName: "location.fill")
+                    Image(systemName: "location")
                         .font(.system(size: 12))
                         .foregroundColor(.gray)
                     Text("in \(reminder.room)")
@@ -239,28 +232,26 @@ struct PlantReminderRow: View {
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(.white)
                 
-                
                 HStack(spacing: 16) {
                     HStack(spacing: 4) {
-//                        sunnn
-                        Image(systemName: "sun.max.fill")
+                        // ☀️ الشمس + النص Full sun فقط اللون الجديد
+                        Image(systemName: "sun.max")
                             .font(.system(size: 12))
-                            .foregroundColor(.yellow)
-
+                            .foregroundColor(Color(hex: "CCC785"))
+                        
                         Text(reminder.lightCondition)
                             .font(.system(size: 14))
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color(hex: "CCC785"))
                     }
                     
                     HStack(spacing: 4) {
-//                        Waterrr
-                        Image(systemName: "drop.fill")
+                        Image(systemName: "drop")
                             .font(.system(size: 12))
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color(hex: "CCC785"))
                         Text(reminder.waterAmount)
                             .font(.system(size: 14))
                             .foregroundColor(.gray)
-                    }.foregroundColor(Color( "#CAF3FB"))
+                    }.foregroundColor(Color(hex: "CCC785"))
                 }
             }
             .contentShape(Rectangle())
@@ -281,6 +272,8 @@ struct PlantReminderRow: View {
         )
     }
 }
+
+
 
 #Preview {
     MainView(viewModel: PlantReminderViewModel())

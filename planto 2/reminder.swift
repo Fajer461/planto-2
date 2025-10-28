@@ -62,7 +62,7 @@ struct PlantReminderSheet: View {
                             Image(systemName: "xmark")
                                 .foregroundColor(.white)
                                 .font(.system(size: 18, weight: .semibold))
-                                .frame(width: 32, height: 32)
+                                .frame(width: 44, height: 44)
                                 .background(Color(white: 0.2))
                                 .clipShape(Circle())
                         }
@@ -83,8 +83,8 @@ struct PlantReminderSheet: View {
                             Image(systemName: "checkmark")
                                 .foregroundColor(.black)
                                 .font(.system(size: 18, weight: .bold))
-                                .frame(width: 32, height: 32)
-                                .background(Color.green)
+                                .frame(width: 44, height: 44)
+                                .background(Color(hex: "#66FED0"))
                                 .clipShape(Circle())
                         }
                     }
@@ -132,7 +132,7 @@ struct PlantReminderSheet: View {
                                     }
                                 } label: {
                                     HStack {
-                                        Image(systemName: "location.fill")
+                                        Image(systemName: "location")
                                             .foregroundColor(.white)
                                             .font(.system(size: 16))
                                         Text("Room")
@@ -169,7 +169,7 @@ struct PlantReminderSheet: View {
                                     }
                                 } label: {
                                     HStack {
-                                        Image(systemName: "sun.max.fill")
+                                        Image(systemName: "sun.max")
                                             .foregroundColor(.white)
                                             .font(.system(size: 16))
                                         Text("Light")
@@ -207,7 +207,7 @@ struct PlantReminderSheet: View {
                                     }
                                 } label: {
                                     HStack {
-                                        Image(systemName: "drop.fill")
+                                        Image(systemName: "drop")
                                             .foregroundColor(.white)
                                             .font(.system(size: 16))
                                         Text("Watering Days")
@@ -244,7 +244,7 @@ struct PlantReminderSheet: View {
                                     }
                                 } label: {
                                     HStack {
-                                        Image(systemName: "drop.fill")
+                                        Image(systemName: "drop")
                                             .foregroundColor(.white)
                                             .font(.system(size: 16))
                                         Text("Water")
